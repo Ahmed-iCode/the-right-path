@@ -1,0 +1,1204 @@
+/* إعدادات عامة عشان التطبيق يبقى واخد الشاشة كلها */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* طول الشاشة بالكامل */
+  background-color: #f5f7fa; /* لون خلفية هادي */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode .app-container {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+
+.dark-mode .content-area {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+
+/* 1. تنسيق الشريط العلوي */
+.top-bar {
+  background: linear-gradient(135deg, #0f766e, #115e59); /* لون أخضر إسلامي حديث */
+  color: white;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.xp-progress-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.xp-progress-fill {
+  background-color: #fbbf24; /* لون ذهبي للتقدم */
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.xp-text {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* 2. تنسيق منطقة المحتوى */
+.content-area {
+  flex: 1; /* ياخد باقي المساحة المتاحة */
+  overflow-y: auto; /* يسمح بالسكرول لو المحتوى طويل */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.2rem;
+  color: #555;
+  min-height: 0; /* مهم للـ flex */
+}
+
+.screen {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.screen-placeholder {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.dark-mode .screen-placeholder {
+  color: #6b7280;
+}
+
+/* تنسيقات قائمة المهام */
+.tasks-list {
+  width: 100%;
+  max-width: 600px;
+}
+
+.tasks-list h3 {
+  color: #0f766e;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.dark-mode .tasks-list h3 {
+  color: #10b981;
+}
+
+.task-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.dark-mode .task-card {
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.task-card:active {
+  transform: scale(0.98);
+}
+
+.task-card.completed {
+  background-color: #f0fdf4; /* لون أخضر فاتح جداً */
+  border-color: #bbf7d0;
+  opacity: 0.8;
+}
+
+.dark-mode .task-card.completed {
+  background-color: #1a3a2a;
+  border-color: #10b981;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-time {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: normal;
+}
+
+.dark-mode .task-time {
+  color: #9ca3af;
+}
+
+.task-icon {
+  font-size: 1.5rem;
+}
+
+.task-title {
+  font-weight: 600;
+  color: #334155;
+  text-align: right;
+}
+
+.dark-mode .task-title {
+  color: #e5e5e5;
+}
+
+.task-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-xp {
+  background-color: #fef3c7;
+  color: #d97706;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.task-check {
+  font-size: 1.2rem;
+}
+
+.task-circle {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+/* 3. تنسيق شريط التنقل السفلي */
+.bottom-nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #e5e7eb;
+  position: sticky;
+  bottom: 0;
+}
+
+.dark-mode .bottom-nav {
+  background-color: #2d2d2d;
+  border-top-color: #404040;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9ca3af; /* لون رمادي باهت لغير النشط */
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.3s;
+  padding: 5px 10px;
+  min-width: 60px;
+}
+
+.nav-item span {
+  margin-top: 4px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: #0f766e; /* نفس لون الهيدر للعنصر النشط */
+  transform: translateY(-5px); /* حركة بسيطة لفوق */
+}
+
+/* تنسيق السبحة */
+.tools-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.tasbeeh-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+}
+
+.dark-mode .tasbeeh-card {
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.tasbeeh-card h3 {
+  color: #0f766e;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.tasbeeh-display {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #334155;
+  margin: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tasbeeh-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* عشان يبقى مدور */
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* توسيط */
+}
+
+.tasbeeh-btn:active {
+  transform: scale(0.95); /* تأثير الضغطة */
+  box-shadow: 0 2px 5px rgba(16, 185, 129, 0.4);
+}
+
+.reset-btn {
+  background: none;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background-color: #f1f5f9;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.reset-btn:active {
+  transform: scale(0.95);
+}
+
+/* تنسيق صفحة الرحلة */
+.journey-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.level-card {
+  background: linear-gradient(135deg, #3b82f6, #2563eb); /* لون أزرق ملكي */
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+  text-align: center;
+}
+
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.level-card h2 {
+  margin: 10px 0 20px 0;
+  font-size: 1.8rem;
+}
+
+.next-level-info {
+  margin-top: 15px;
+}
+
+.level-progress-bg {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 8px;
+  border-radius: 4px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.level-progress-fill {
+  background-color: #fbbf24;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.small-text {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.section-title {
+  color: #334155;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 5px;
+  display: inline-block;
+  font-size: 1.3rem;
+  text-align: right;
+  width: 100%;
+}
+
+.dark-mode .section-title {
+  color: #e5e5e5;
+  border-bottom-color: #404040;
+}
+
+/* شبكة البادجات */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* يظبط نفسه حسب الشاشة */
+  gap: 15px;
+}
+
+.badge-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  aspect-ratio: 1 / 1; /* يخليها مربعة */
+  transition: transform 0.2s;
+}
+
+.dark-mode .badge-item {
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.badge-item.unlocked {
+  border: 2px solid #fbbf24; /* إطار ذهبي للمفتوح */
+}
+
+.badge-item.unlocked .badge-icon {
+  color: #fbbf24;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.badge-item.locked {
+  background-color: #f1f5f9;
+  opacity: 0.6;
+}
+
+.badge-item.locked .badge-icon {
+  color: #94a3b8;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.badge-item span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #334155;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* تنسيق المكتبة */
+.library-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.library-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.dark-mode .library-card {
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.quran-card {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7); /* لون كريمي هادي للمصحف */
+  border: 1px solid #fde68a;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b45309;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #78350f;
+  margin-bottom: 20px;
+}
+
+/* مُسجل القرآن */
+.quran-logger {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quran-logger input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  color: #334155;
+}
+
+.dark-mode .quran-logger input {
+  background: #1a1a1a;
+  border-color: #404040;
+  color: #e5e5e5;
+}
+
+.quran-logger input:focus {
+  outline: none;
+  border-color: #b45309;
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.1);
+}
+
+.quran-logger button {
+  background-color: #b45309;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.quran-logger button:hover {
+  background-color: #92400e;
+}
+
+.quran-logger button:active {
+  transform: scale(0.95);
+}
+
+/* شبكة الأذكار */
+.library-section-title {
+  font-weight: bold;
+  color: #334155;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  border-right: 4px solid #0f766e;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.dark-mode .library-section-title {
+  color: #e5e5e5;
+  border-right-color: #10b981;
+}
+
+.athkar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.athkar-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #0f766e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #e2e8f0;
+}
+
+.dark-mode .athkar-item {
+  background: #2d2d2d;
+  color: #10b981;
+  border-color: #404040;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.athkar-item:hover {
+  background-color: #f0fdf4;
+  border-color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.1);
+}
+
+.athkar-item:active {
+  transform: translateY(0);
+}
+
+/* تنسيق شاشة الدخول */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+}
+
+.auth-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.dark-mode .auth-card {
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.auth-card h1 {
+  color: #0f766e;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.auth-card p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.auth-btn:hover {
+  background-color: #0d9488;
+}
+
+.auth-btn:active {
+  transform: scale(0.98);
+}
+
+.toggle-auth {
+  color: #0d9488;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.toggle-auth:hover {
+  color: #0f766e;
+}
+
+.gender-select {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+.gender-select label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.gender-select label:hover {
+  background-color: #f1f5f9;
+  border-color: #0f766e;
+}
+
+.gender-select input[type="radio"] {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.profile-container h2 {
+  color: #0f766e;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dark-mode .profile-container h2 {
+  color: #10b981;
+}
+
+.profile-info {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.dark-mode .profile-info {
+  background: #2d2d2d;
+  color: #e5e5e5;
+}
+
+.profile-info p {
+  color: #64748b;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.dark-mode .profile-info p {
+  color: #b0b0b0;
+}
+
+.profile-info strong {
+  color: #0f766e;
+  margin-left: 5px;
+}
+
+.dark-mode .profile-info strong {
+  color: #10b981;
+}
+
+.settings-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.dark-mode .settings-section {
+  background: #2d2d2d;
+  color: #e5e5e5;
+}
+
+.settings-section h3 {
+  color: #0f766e;
+  margin-bottom: 20px;
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.dark-mode .settings-section h3 {
+  color: #10b981;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark-mode .setting-item {
+  border-bottom-color: #404040;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-label {
+  flex: 1;
+  text-align: right;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.dark-mode .setting-label {
+  color: #e5e5e5;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.dark-mode .slider {
+  background-color: #404040;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0f766e;
+}
+
+.dark-mode input:checked + .slider {
+  background-color: #10b981;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.gender-select-small {
+  display: flex;
+  gap: 10px;
+}
+
+.gender-btn {
+  padding: 8px 15px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.dark-mode .gender-btn {
+  background: #2d2d2d;
+  border-color: #404040;
+  color: #e5e5e5;
+}
+
+.gender-btn:hover {
+  border-color: #0f766e;
+  transform: translateY(-2px);
+}
+
+.dark-mode .gender-btn:hover {
+  border-color: #10b981;
+}
+
+.gender-btn.active {
+  background-color: #0f766e;
+  color: white;
+  border-color: #0f766e;
+}
+
+.dark-mode .gender-btn.active {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.profile-actions {
+  text-align: center;
+}
+
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.loading {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #0f766e;
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  color: white;
+}
+
+.why-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: transform 0.2s;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-btn:hover {
+  transform: scale(1.2);
+}
+
+.why-btn:active {
+  transform: scale(0.95);
+}
+
+.home-header {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.hijri-date {
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dark-mode .hijri-date {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.daily-hadith {
+  background: #fef3c7;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-right: 4px solid #fbbf24;
+}
+
+.dark-mode .daily-hadith {
+  background: #3a2e1a;
+  border-right-color: #fbbf24;
+}
+
+.hadith-text {
+  color: #78350f;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: right;
+  margin: 0;
+}
+
+.dark-mode .hadith-text {
+  color: #fbbf24;
+}
+
+.task-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-time {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: normal;
+}
+
+.dark-mode .task-time {
+  color: #9ca3af;
+}
+
+/* شاشة الأذكار */
+.athkar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.dark-mode .athkar-modal {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.athkar-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  width: 90%;
+}
+
+.dark-mode .athkar-content {
+  background: #2d2d2d;
+  color: #e5e5e5;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.athkar-content h3 {
+  color: #0f766e;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.dark-mode .athkar-content h3 {
+  color: #10b981;
+}
+
+.athkar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.athkar-item-detail {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 12px;
+  border-right: 4px solid #0f766e;
+}
+
+.dark-mode .athkar-item-detail {
+  background: #1a1a1a;
+  border-right-color: #10b981;
+}
+
+.athkar-text {
+  font-size: 1.1rem;
+  color: #1f2937;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  text-align: right;
+  font-weight: 500;
+}
+
+.dark-mode .athkar-text {
+  color: #e5e5e5;
+}
+
+.athkar-count {
+  color: #0f766e;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dark-mode .athkar-count {
+  color: #10b981;
+}
+
+.athkar-source {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.dark-mode .athkar-source {
+  color: #9ca3af;
+}
+
